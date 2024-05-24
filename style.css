@@ -107,6 +107,19 @@ nav li {
     list-style: none;
 }
 
+nav ul.navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+nav li.large-screen {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+}
+
 nav a {
     text-decoration: none;
     color: #000;
@@ -168,6 +181,10 @@ nav a:hover {
 
 @media screen and (max-width: 768px) {
     nav .large-screen {
+        display: none;
+    }
+
+    nav li.large-screen {
         display: none;
     }
 
