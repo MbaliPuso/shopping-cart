@@ -69,7 +69,7 @@ function renderProducts() {
                 <img src="${product.imgSrc}" class="card-img-top" alt="${product.name}">
                 <div class="card-body text-center">
                 <div class="title fw-bold mb-2">${product.name}</div>
-                <div class="price mb-2">R${product.price.toFixed(2)}</div>
+                <div class="price mb-2">R ${product.price.toFixed(2)}</div>
                 <div class="fw-bold mb-3">${product.description}</div>
                 <button type="button" class="btn btn-dark d-block m-auto" onclick="addItem(${product.id})">Add To Cart</button>
                 </div>
@@ -85,7 +85,8 @@ let cart = JSON.parse(localStorage.getItem("CART")) || [];
 // Adding items function
 function addItem(id) {
     if (cart.some((item) => item.id === id)) {
-        changeNumberOfUnits("plus", id);
+        changeNumberOfUnits("plus", id); 
+        return alert("Item added to cart 😊");
     } else {
         const item = products.find((product) => product.id === id);
         cart.push({ ...item, numberOfUnits: 1,});
@@ -112,7 +113,7 @@ function renderSubtotal() {
       totalItems += item.numberOfUnits;
     });
   
-    subtotalEl.innerHTML = `Subtotal (${totalItems} items): R${totalPrice.toFixed(2)}`;
+    subtotalEl.innerHTML = `Total (${totalItems} items): R${totalPrice.toFixed(2)}`;
     quantity.innerHTML = totalItems;
   }
 
@@ -121,15 +122,15 @@ function renderSubtotal() {
     cartItemsEl.innerHTML = ""; // clear cart element
     cart.forEach((item) => {
         cartItemsEl.innerHTML += `
-        <div class="cart-item">
-            <div class="item-info" onclick="removeItemFromCart(${item.id})">
-                <img src="${item.imgSrc}" alt="${item.name}">
-                <h4>${item.name}</h4>
+        <div class="row cart-item">
+            <div class="col-6 item-info" onclick="removeItemFromCart(${item.id})">
+                <img src="${item.imgSrc}" alt="${item.name} width="100" height="100">
+                <div class="paintName">${item.name}</div>
             </div>
-            <div class="unit-price">
-                <small>R</small>${item.price.toFixed(2)}
+            <div class="col-3 unit-price">
+                R${item.price.toFixed(2)}
             </div>
-            <div class="units">
+            <div class="col-3 units">
                <div class="btn minus" onclick="changeNumberOfUnits('minus', ${item.id})">-</div>
                <div class="number">${item.numberOfUnits}</div>
                <div class="btn plus" onclick="changeNumberOfUnits('plus', ${item.id})">+</div>           

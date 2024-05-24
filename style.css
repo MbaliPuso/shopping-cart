@@ -1,12 +1,13 @@
-html, body {
+body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
+    font-family: "Viga", sans-serif;
 }
 
 header h1 {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 90px;
     line-height: 1;
     margin: 30px 0;
@@ -32,7 +33,7 @@ header h2 {
 }
 
 header h3 {
-    font-weight: 900;
+    font-weight: 500;
     font-size: 40px;
     line-height: 1.5;
     letter-spacing: 5px;
@@ -49,6 +50,7 @@ header {
     background-image: url(hero.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: "Viga", sans-serif;
     color: black;
     text-align: center;
     padding: 200px 0;
@@ -61,7 +63,7 @@ header {
     }
 } */
 
-header a {
+.hero-button {
     font-weight: 700;
     font-size: 14px;
     line-height: 1.5;
@@ -75,28 +77,67 @@ header a {
     background: white;
 }
 
-.navbar ul {
-    list-style-type: none;
-    padding: 0;
+nav  {
+    font-family: "Viga", sans-serif;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 0 30px 0 30px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: end;
+    font-size: 20px;
+    height: 90px;
 }
 
-.navbar a {
+nav span {
+    color: #f95202;
+}
+
+nav p {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+nav li {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    justify-content: end;
+    list-style: none;
+}
+
+nav a {
     text-decoration: none;
+    color: #000;
+    padding: 0 0.8rem;
+    transition: 0.1s ease-in-out;
+    font-size: 20px;
 }
 
-.quantity span {
-    position: relative;
-    top: 0;
-    right: 0;
-    transform: translate(50%, -50%);
-    background-color: #A3C6C4;
+nav a:hover {
+    color: #f95202;
+}
+
+
+
+/* Styling for cart icon */
+#carticon {
     color: #fff;
-    border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 5px;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font-size: 20px;
+}
+
+#carticon:hover {
+    color: #f95202;
+
+}
+
+.quantity nav {
+    position: relative;
+    bottom: 80px;
 }
 
 .footer {
@@ -119,4 +160,35 @@ header a {
     text-decoration: none;
     color: white;
 }
+
+.unit-price {
+    position: relative;
+    top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    nav .large-screen {
+        display: none;
+    }
+
+    nav .small-screen {
+        padding-right: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 15px;
+    }
+
+    .small-screen a {
+        font-weight: 500;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    nav .small-screen {
+        display: none;
+    }
+}
+
+
 
