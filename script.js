@@ -1,7 +1,7 @@
 const products = [
     {
       id: 0,
-      name: "Red",
+      name: "Red Paint",
       price: 168.99,
       instock: 100,
       description:
@@ -10,7 +10,7 @@ const products = [
     },
     {
       id: 1,
-      name: "Blue",
+      name: "Blue Paint",
       price: 168.99,
       instock: 100,
       description:
@@ -19,7 +19,7 @@ const products = [
     },
     {
       id: 2,
-      name: "Yellow",
+      name: "Yellow Paint",
       price: 168.99,
       instock: 100,
       description:
@@ -28,7 +28,7 @@ const products = [
     },
     {
       id: 3,
-      name: "White",
+      name: "White Paint",
       price: 168.99,
       instock: 100,
       description:
@@ -37,7 +37,7 @@ const products = [
     },
     {
       id: 4,
-      name: "Black",
+      name: "Black Paint",
       price: 168.99,
       instock: 100,
       description:
@@ -58,7 +58,7 @@ const products = [
 const productItems = document.querySelector(".products");
 const cartItemsEl = document.querySelector(".cart-items");
 const subtotalEl = document.querySelector(".subtotal");
-const quantity = document.querySelector(".quantity")
+const quantity = document.querySelector(".quantity");
 
 // Render products on HTML file
 function renderProducts() {
@@ -117,17 +117,24 @@ function renderSubtotal() {
     quantity.innerHTML = totalItems;
   }
 
-  // Show items in cart
+  // Add headings for columns 
   function renderCartItems() {
-    cartItemsEl.innerHTML = ""; // clear cart element
+    cartItemsEl.innerHTML = `
+    <div class="row cart-heading mb-3">
+       <div class="col-6"><strong>Item</strong></div>
+       <div class="col-3"><strong>Price</strong></div>
+       <div class="col-3"><strong>Quantity</strong></div>
+    </div>
+    `;
+
     cart.forEach((item) => {
         cartItemsEl.innerHTML += `
         <div class="row cart-item">
-            <div class="col-6 item-info" onclick="removeItemFromCart(${item.id})">
-                <img src="${item.imgSrc}" alt="${item.name} width="100" height="100">
+            <div class="col-6 item-info mb-3" onclick="removeItemFromCart(${item.id})">
+                <img src="${item.imgSrc}" alt="${item.name}" width="100" height="100">
                 <div class="paintName">${item.name}</div>
             </div>
-            <div class="col-3 unit-price">
+            <div class="col-3 unit-price mb-3">
                 R${item.price.toFixed(2)}
             </div>
             <div class="col-3 units">
@@ -139,6 +146,7 @@ function renderSubtotal() {
       `;
   });
 }
+
      
   
 
