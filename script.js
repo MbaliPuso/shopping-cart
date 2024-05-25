@@ -86,7 +86,6 @@ let cart = JSON.parse(localStorage.getItem("CART")) || [];
 function addItem(id) {
     if (cart.some((item) => item.id === id)) {
         changeNumberOfUnits("plus", id); 
-        return alert("Item added to cart 😊");
     } else {
         const item = products.find((product) => product.id === id);
         cart.push({ ...item, numberOfUnits: 1,});
@@ -131,7 +130,7 @@ function renderSubtotal() {
         cartItemsEl.innerHTML += `
         <div class="row cart-item">
             <div class="col-6 item-info mb-3" onclick="removeItemFromCart(${item.id})">
-                <img src="${item.imgSrc}" alt="${item.name}" width="100" height="100">
+                <img src="${item.imgSrc}" alt="${item.name}" width="120" height="120">
                 <div class="paintName">${item.name}</div>
             </div>
             <div class="col-3 unit-price mb-3">

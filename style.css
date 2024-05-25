@@ -157,14 +157,7 @@ nav a:hover {
 }
 
 .footer {
-    background-image: linear-gradient(
-        rgba(7, 4, 4, 0.9),
-        rgba(5, 3, 3, 0.9)
-      ),
-      url("paint-brush.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
+    background: linear-gradient(90.9deg, rgb(255, 187, 187) -8.8%, rgb(255, 220, 177) 12.4%, rgb(255, 249, 177) 35.6%, rgb(220, 255, 177) 59.6%, rgb(177, 218, 255) 84%, rgb(222, 177, 255) 107.9%);
 }
 
 .footer ul {
@@ -174,7 +167,7 @@ nav a:hover {
 
 .footer a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .unit-price {
